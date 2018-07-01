@@ -1,0 +1,16 @@
+body{
+    width: 500px;
+    height: 550px;
+    margin: auto;
+}
+form{
+    border: 1px solid brown;
+    border-radius: 5px;
+    width: 70%;
+    height: 500px;
+    padding-top: 50px;
+}
+.form-group, button{
+    margin: 0 20px;
+    margin-bottom: 10px;
+}
