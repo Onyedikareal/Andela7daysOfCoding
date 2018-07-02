@@ -2,7 +2,7 @@
 
 self.addEventListener('install', event => {
     event.waitUntil(
-        caches.open('free-currency-cachev2')
+        caches.open('free-currency-cachev3')
         .then(cache => {
             console.info('Service Worker caching files');
             return cache.addAll([
