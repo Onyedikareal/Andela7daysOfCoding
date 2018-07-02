@@ -1,20 +1,19 @@
 // Registering the Service Worker
 
 if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-      navigator.serviceWorker.register('../worker.js', {scope:'../'}).then(function(registration) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./worker.js', {scope: './'}).then((registration) => {
         // Registration was successful
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      }, function(err) {
-        // registration failed :(
-        console.log('ServiceWorker registration failed: ', err);
+        console.log(`ServiceWorker registration successful with scope:  ${registration.scope}`);
+      }, (err)=> {
+        // registration failed :disappointed:
+        console.log(`ServiceWorker registration failed:  ${err}`);
       });
     });
   }
-else {
+ else {
     console.log('Service workers are not supported.');
   }
-  
 
 let val;
 

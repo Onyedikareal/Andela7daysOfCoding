@@ -1,17 +1,16 @@
-const cacheName = 'free-currency-cache';
-
-const CachedFiles = [
-    '/',                
-    '/app/scripts.js',
-    '/styles.css',
-];
+const cacheName = 'free-currency-cachev1';
 
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(cacheName)
         .then(cache => {
             console.info('Service Worker caching files');
-            return cache.addAll(CachedFiles);
+            return cache.addAll([
+              './',    
+              './index.html',            
+              './script.js',
+              './styles.css',
+          ])
         })
     );
 });
@@ -21,7 +20,7 @@ self.addEventListener('activate', event => {
       caches.keys()
         .then(keyList => Promise.all(keyList.map(thisCacheName => {
         if (thisCacheName !== cacheName){
-            console.log("Service worker removing cached files from", thisCacheName);
+            console.log(`Service worker removing cached files from ${thisCacheName}`);
             return caches.delete(thisCacheName);        
         }
     })))
@@ -38,8 +37,8 @@ self.addEventListener('fetch', event => {
           cache.put(event.request, response.clone());
             return response;
           }))
-          .catch(event => {
-          console.log('Service Worker error caching and fetching');
+          .catch(err => {
+          console.log(`Service Worker error caching and fetching:  ${err}`);
         }))
       );
     });
