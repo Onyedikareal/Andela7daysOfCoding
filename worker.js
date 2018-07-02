@@ -10,7 +10,7 @@ self.addEventListener('install', event => {
               './index.html',            
               './script.js',
               './styles.css',
-          ])
+          ]);
         })
     );
 });
