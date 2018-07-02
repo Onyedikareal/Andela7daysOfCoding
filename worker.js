@@ -11,7 +11,7 @@ self.addEventListener('install', event => {
               '/script.js',
               '/styles.css',
           ]);
-        })
+        });
     );
 });
 
