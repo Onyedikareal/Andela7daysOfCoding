@@ -6,11 +6,10 @@ self.addEventListener('install', event => {
         .then(cache => {
             console.info('Service Worker caching files');
             return cache.addAll([
-              '/',    
-              '/index.html',            
-              '/script.js',
-              '/styles.css',
-          ])
+              './',    
+              './index.html',            
+              './script.js',
+              './styles.css' ])
         })
     )
 });
