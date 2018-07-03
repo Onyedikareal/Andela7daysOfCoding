@@ -1,10 +1,10 @@
 
 
 self.addEventListener('install', event => {
+    console.info('Service Worker caching files');
     event.waitUntil(
         caches.open('free-currency-cachev3')
         .then(cache => {
-            console.info('Service Worker caching files');
             return cache.addAll([
               './',    
               './index.html',            
