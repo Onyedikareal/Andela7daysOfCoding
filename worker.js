@@ -1,5 +1,5 @@
 
-const cacheName = 'free-currency-cachev4';
+const cacheName = 'free-currency-cachev2';
 self.addEventListener('install', event => {
     console.info('Service Worker caching files');
     event.waitUntil(
