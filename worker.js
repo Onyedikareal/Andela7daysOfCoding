@@ -10,9 +10,9 @@ self.addEventListener('install', event => {
               '/index.html',            
               '/script.js',
               '/styles.css',
-          ]);
-        });
-    );
+          ])
+        })
+    )
 });
 
 self.addEventListener('activate', event => {
