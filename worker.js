@@ -1,9 +1,9 @@
 
-
+const cacheName = 'free-currency-cachev4';
 self.addEventListener('install', event => {
     console.info('Service Worker caching files');
     event.waitUntil(
-        caches.open('free-currency-cachev3')
+        caches.open(cacheName)
         .then(cache => {
             return cache.addAll([
               './',    
@@ -15,6 +15,7 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('activate', event => {
+    console.info('Service Worker activating');
   event.waitUntil(
       caches.keys()
         .then(keyList => Promise.all(keyList.map(thisCacheName => {
