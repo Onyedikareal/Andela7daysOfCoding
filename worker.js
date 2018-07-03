@@ -1,21 +1,21 @@
 
-
+const cacheName = 'free-currency-cachev4';
 self.addEventListener('install', event => {
+    console.info('Service Worker caching files');
     event.waitUntil(
-        caches.open('free-currency-cachev3')
+        caches.open(cacheName)
         .then(cache => {
-            console.info('Service Worker caching files');
             return cache.addAll([
-              '/',    
-              '/index.html',            
-              '/script.js',
-              '/styles.css',
-          ])
+              './',    
+              './index.html',            
+              './app/script.js',
+              './styles.css' ])
         })
     )
 });
 
 self.addEventListener('activate', event => {
+    console.info('Service Worker activating');
   event.waitUntil(
       caches.keys()
         .then(keyList => Promise.all(keyList.map(thisCacheName => {
